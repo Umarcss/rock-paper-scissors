@@ -3,12 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
-  Score
+  <div class="rules-block" id="rulesBlock">
+    <div class="rules-message">
+      <div class="logo-rules">
+        <span>Rules</span>
+        <button id="closeButton"><img src="images/icon-close.svg" alt="close"></button>
+      </div>
+      <div class="rules-img">
+        <img src="images/image-rules.svg" alt="Rock beats Scissors, Scissors beat Paper, Paper beats Rock">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="images/logo.svg" alt="Rock, Paper, Scissors">
+      </div>
+      <div class="score-block">
+        <h2>Score</h2>
+        <span id="score">0</span>
+      </div>
+    </header>
+    <main id="mainMenu">
+      <button class="playButton" id="paper" data="0">
+        <img src="images/icon-paper.svg" alt="Paper">
+      </button>
+      <button class="playButton" id="scissors" data="1">
+        <img src="images/icon-scissors.svg" alt="scissors">
+      </button>
+      <button class="playButton" id="rock" data="2">
+        <img src="images/icon-rock.svg" alt="rock">
+      </button>
+    </main>
+    <div class="waitBlock" id="waitBlock"> 
+      <div class="userPickBlock">
+        <h2>You picked</h2>
+        <div class="userPick" id="userPick"></div>
+      </div>
+      <div class="timerBlock" id="timerBlock">
+        <h3>Computer thinks</h3>
+        <span id="timer">3</span>
+      </div>
+      <div class="winBlock" id="winBlock">
+        <h2>You win</h2>
+        <button class="againButton">Play again</button>
+      </div>
+      <div class="loseBlock" id="loseBlock">
+        <h2>You lose</h2>
+        <button class="againButton">Play again</button>
+      </div>
+      <div class="drawBlock" id="drawBlock">
+        <h2>Draw</h2>
+        <button class="againButton">Play again</button>
+      </div>
+      <div class="computerPick">
+        <h2>Computer picked</h2>
+        <div class="computerPickBlock" id="computerPickBlock"></div>
+      </div>
+    </div>
+    <footer>
+      <button class="rules" id="rulesButton">Rules</button>
+    </footer>
+  </div>
+
+  <!-- Score
   Rules
 
   You Picked
@@ -17,13 +82,9 @@
   You Win
   You Lose
 
-  Play Again
+  Play Again -->
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  
 </head>
 <body>
 
@@ -31,7 +92,7 @@
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Dinixtus</a>.
   </div>
 </body>
 </html>

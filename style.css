@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: Barlow Semi Condensed;
+}
+
+body {
+    background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    height: 98vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 130px;
+    border: 5px solid rgba(255, 255, 255, 0.237);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+header .logo img {
+    width: 200px;
+    height: 130px;
+}
+
+header .score-block {
+    height: 130px;
+    width: 200px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+header .score-block h2 {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: hsl(229, 64%, 46%);
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+header .score-block span {
+    font-size: 70px;
+    font-weight: 700;
+    color: hsl(229, 25%, 31%);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    background-image: url(images/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 60%;
+    height: 450px;
+    position: relative;
+}
+
+.playButton, .playButtonWait {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    border: 30px solid;
+    transition: 0.5s ease border-color;
+    position: absolute;
+}
+
+#paper {
+    border-color:hsl(230, 89%, 62%);
+    box-shadow: 0 10px 0 hsla(230, 89%, 62%, 0.417);
+    right: 600px;
+}
+
+#paper:hover {
+    border-color: hsl(230, 89%, 65%);
+}
+
+#scissors {
+    border-color: hsl(39, 89%, 49%);
+    box-shadow: 0 10px 0 hsla(39, 89%, 49%, 0.425);
+    left: 600px;
+}
+
+#scissors:hover {
+    border-color: hsl(40, 84%, 53%);  
+}
+
+#rock {
+    border-color: hsl(349, 71%, 52%);
+    box-shadow: 0 10px 0 hsla(349, 71%, 52%, 0.434);
+    top: 250px;
+}
+
+#rock:hover {
+    border-color: hsl(349, 70%, 56%);
+}
+
+#paper:hover, #scissors:hover, #rock:hover {
+    box-shadow: none;
+}
+
+footer {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-top: 30px;
+}
+
+footer button {
+    width: 200px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color:hsla(0, 0%, 100%, 0);
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 600;
+    transition: 0.5s ease background-color, 0.5s ease color;
+}
+
+footer button:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.rules-block {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    background-color:rgba(0, 0, 0, 0.339)
+}
+
+.rules-block .rules-message {
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.rules-block .rules-message .logo-rules {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rules-block .rules-message .logo-rules span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.rules-block .rules-message .logo-rules button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color:rgba(255, 255, 255, 0);
+    border: none;
+}
+
+.rules-block .rules-message .logo-rules button img {
+    width: 30px;
+    height: 30px;
+    transition: 0.5s ease width, 0.5s ease height;
+}
+
+.rules-block .rules-message .logo-rules button:hover img {
+    width: 38px;
+    height: 38px;
+}
+
+.rules-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.waitBlock {
+    display: none;
+    justify-content: space-around;
+    width: 100%;
+    height: 450px;
+    margin-top: 50px;
+    padding: 0 70px;
+    box-sizing: border-box;
+}
+
+.waitBlock h2 {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.timerBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.timerBlock h3 {
+    color: #ffffff;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.timerBlock span {
+    font-size: 40px;
+    color: #ffffff;
+    transition: 0.5s ease transform;
+}
+
+.computerPickBlock {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-color:rgba(0, 0, 0, 0.343);
+    margin-top: 100px;
+}
+
+.userPick .playButtonWait {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    top: 50px !important;
+    left: 0 !important;
+}
+
+.computerPickBlock .playButtonWait {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    right: 30px !important;
+    bottom: 20px !important;
+    top: -20px !important;
+    left: -20px !important;
+}
+
+.winBlock, .loseBlock, .drawBlock {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.winBlock h2, .loseBlock h2, .drawBlock h2 {
+    font-size: 55px;
+    letter-spacing: 4px;
+}
+
+.winBlock button, .drawBlock button {
+    color: hsl(229, 25%, 31%);
+}
+
+.loseBlock button {
+    color: hsl(349, 71%, 52%);
+}
+
+.againButton {
+    width: 300px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: none;
+    font-weight: 600;
+    transition: 0.8s ease transform;
+}
+
+.againButton:hover {
+    transform: scale(1.1);
+}
+
+.winBlock button:hover {
+    color: rgb(81, 81, 205);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+@media (max-width: 1600px) {
+    #scissors {
+        left: 500px;
+    }
+    #paper {
+        right: 500px;
+    }
+}
+
+@media (max-width: 1300px) {
+    #scissors {
+        left: 400px;
+    }
+    #paper {
+        right: 400px;
+    }
+    .computerPickBlock .playButtonWait {
+        width: 300px;
+        height: 300px;
+        top: -5px !important;
+        left: -5px !important;
+    }
+    .userPick .playButtonWait {
+        width: 300px;
+        height: 300px;
+        top: 70px !important;
+    }
+    .againButton {
+        width: 200px;
+
+    }
+}
+
+@media (max-width: 1100px) {
+    .playButton {
+        width: 200px;
+        height: 200px;
+    }
+    #scissors {
+        left: 300px;
+    }
+    #paper {
+        right: 300px;
+    }
+    .userPick .playButtonWait, .computerPickBlock .playButtonWait {
+        width: 250px;
+        height: 250px;
+    }
+     .computerPickBlock .playButtonWait {
+        left: 0 !important;
+     }
+    .computerPickBlock {
+        width: 250px;
+        height: 250px;
+        margin-top: 45px;
+    }
+    .waitBlock {
+        padding: 0 10px;
+    }
+    .userPick .playButtonWait {
+        top: 20px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        height: 130vh;
+    }
+    .container {
+        padding: 50px 10px;
+    }
+    header {
+        width: 90%;
+    }
+    #scissors {
+        left: 250px;
+    }
+    #paper {
+        right: 250px;
+    }
+    .waitBlock {
+        height: 650px;
+    }
+    .winBlock, .timerBlock, .loseBlock, .drawBlock {
+        position: relative;
+        top: 200px;
+        width: 100px !important;
+    }
+    .winBlock h2, .timerBlock h2, .loseBlock h2, .drawBlock h2 {
+        width: 300px;
+    }
+    .userPick .playButtonWait, .computerPickBlock .playButtonWait {
+        width: 200px;
+        height: 200px;
+    }
+    .computerPickBlock {
+        width: 200px;
+        height: 200px;
+        margin-top: 45px;
+    }
+        .userPick .playButtonWait {
+        top: 50px !important;
+    }
+    .againButton {
+        width: 400px;
+    }
+    .rules-block {
+        height: 130vh;
+    }
+    .rules-block .rules-message {
+        width: 400px;
+        height: 500px;
+    }
+    footer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    #scissors {
+        left: 200px;
+    }
+    #paper {
+        right: 200px;
+    }
+    .playButton {
+        width: 150px;
+        height: 150px;
+        border: 20px solid;
+    }
+    .computerPickBlock .playButtonWait, .userPick .playButtonWait {
+        width: 150px;
+        height: 150px;
+    }
+    .userPick .playButtonWait {
+        top: 20px !important;
+    }
+    .computerPickBlock {
+        width: 150px;
+        height: 150px;
+        margin-top: 45px;
+    }
+    .winBlock, .timerBlock, .loseBlock, .drawBlock {
+        position: relative;
+        top: 100px;
+        width: 20px !important;
+    }
+    header .score-block {
+        height: 90px;
+        width: 100px;
+    }
+    header {
+        height: 90px;
+    }
+    header .logo img {
+        width: 150px;
+        height: 90px;
+    }
+    header .score-block span {
+        font-size: 50px;
+    }
+    .againButton {
+        width: 300px;
+    }
+    .rules-block .rules-message {
+        width: 300px;
+        height: 500px;
+    }
+}
